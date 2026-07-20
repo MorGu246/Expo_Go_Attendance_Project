@@ -6,7 +6,7 @@ import { StyleSheet, Text, View,
   KeyboardAvoidingView, TouchableWithoutFeedback, Platform, TextInput, Keyboard, Alert, Modal,
   Animated
  } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import { SafeAreaView, SafeAreaProvider } from 'react-native-safe-area-context';
 import React,{useState,useRef} from "react"
 import WebView from 'react-native-webview';
 import AntDesign from '@expo/vector-icons/AntDesign';

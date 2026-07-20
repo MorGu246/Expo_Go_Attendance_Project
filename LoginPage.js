@@ -13,15 +13,17 @@ import AntDesign from '@expo/vector-icons/AntDesign';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import LottieView from 'lottie-react-native';
 
-export function MyInput() {
+export function MyInput({ onLoginSuccess }) { 
     let input2 = useRef(null);
-    let [myName, setMyName] = useState('')
-    let [myPass, setMyPass] = useState('')
-    let curName='kinneret';
-    let curPass='1234';
+    let [myName, setMyName] = useState('');
+    let [myPass, setMyPass] = useState('');
+    let curName = 'kinneret';
+    let curPass = '1234';
+
     const handleLogin = () => {
         if (myName === curName && myPass === curPass) {
-            Alert.alert("הצלחה", "התחברת בהצלחה למערכת הנוכחות!");
+            // האפליקציה תוביל למסך הבא באמצעות הפונקציה הזו
+            if (onLoginSuccess) onLoginSuccess();
         } else {
             Alert.alert("שגיאה", "שם משתמש או סיסמה שגויים. נסה שוב.");
         }

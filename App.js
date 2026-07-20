@@ -6,24 +6,45 @@ import { StyleSheet, Text, View,
   KeyboardAvoidingView, TouchableWithoutFeedback, Platform, TextInput, Keyboard, Alert, Modal,
   Animated
  } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import { SafeAreaView, SafeAreaProvider } from 'react-native-safe-area-context';
 import React,{useState,useRef} from "react"
 import WebView from 'react-native-webview';
 import AntDesign from '@expo/vector-icons/AntDesign';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import LottieView from 'lottie-react-native';
-//import { MyInput } from './LoginPage';
-import MyEntrance from './(tabs)/entrance';
-import MyExit from './(tabs)/exit';
+import { MyInput } from './LoginPage';
+import MainApp from './MainApp'; // הקומפוננטה החדשה שיצרנו בשלב 2
 
 export default function App() {
+  // סטייט לניהול מצב ההתחברות (ברירת מחדל: לא מחובר)
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  // פונקציה שתופעל כשהלוגין מצליח
+  const handleLoginSuccess = () => {
+    setIsLoggedIn(true);
+  };
+  // פונקציה להתנתקות (כדי לחזור ללוגין)
+  const handleLogout = () => {
+    setIsLoggedIn(false);
+  };
   return (
     // <View style={styles.container}>
     //   <Text>Open up App.js to start working on your app!</Text>
     //   <StatusBar style="auto" />
     // </View>
     // <MyInput></MyInput>
-    <MyExit/>
+    <SafeAreaProvider>
+      <StatusBar style="auto" />
+      <View style={styles.container}>
+        {/* רינדור מותנה: אם מחובר מציג את האפליקציה, אחרת את הלוגין */}
+        {isLoggedIn ? (
+          // מציג את ה-Tabs. מעביר לו פונקציית התנתקות.
+          <MainApp onLogout={handleLogout} />
+        ) : (
+          // מציג את מסך הלוגין. מעביר לו את הפונקציה שתופעל בהצלחה.
+          <MyInput onLoginSuccess={handleLoginSuccess} />
+        )}
+      </View>
+    </SafeAreaProvider>
   );
 }
 
