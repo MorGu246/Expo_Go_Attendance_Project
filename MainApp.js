@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, SafeAreaView, Animated, Alert, Dimensions } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, SafeAreaView, Animated, Alert, Dimensions, Linking } from 'react-native';
+import { StatusBar } from 'expo-status-bar';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import ReportsPage from './(tabs)/Reports'; 
@@ -84,6 +85,7 @@ export default function MainApp({ onLogout }) {
 
     return (
         <SafeAreaView style={styles.container}>
+            <StatusBar style="light" hidden={false} translucent={false} />
             <View style={styles.header}>
                 <TouchableOpacity onPress={() => toggleDrawer(true)} style={styles.hamburgerBtn}>
                     <Text style={styles.hamburgerText}>☰</Text>
