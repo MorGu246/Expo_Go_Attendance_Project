@@ -9,6 +9,7 @@ export default function ReportsPage() {
 
     // טעינת ההיסטוריה בכל פעם שהמסך עולה
     useEffect(() => {
+        // AsyncStorage.clear();
         async function loadHistory() {
             try {
                 const savedHistory = await AsyncStorage.getItem('shift_history');
@@ -56,12 +57,12 @@ export default function ReportsPage() {
             <Text style={styles.screenTitle}>היסטוריית משמרות</Text>
             {history.length === 0 ? (
                 <View style={styles.centerScreen}>
-                    {/* <LottieView 
-                        source={require('../assets/empty.json')} 
+                    <LottieView 
+                        source={require('../assets/NO RESULTS.json')} 
                         autoPlay 
                         loop 
                         style={styles.lottieAnim}
-                    /> */}
+                    />
                     <Text style={styles.emptyText}>אין עדיין משמרות שמורות במערכת</Text>
                 </View>
             ) : (
