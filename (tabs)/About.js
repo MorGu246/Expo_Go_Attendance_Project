@@ -8,7 +8,6 @@ export default function About() {
     const openGithubRepo = () => {
         // שנה את הקישור לכתובת ה-GitHub האמיתית של הפרויקט שלך
         const repoUrl = 'https://github.com/MorGu246/Expo_Go_Attendance_Project'; 
-        
         Linking.openURL(repoUrl).catch((err) => 
             console.error('Failed to open link:', err)
         );

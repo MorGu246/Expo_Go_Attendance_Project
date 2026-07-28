@@ -7,6 +7,9 @@ import ReportsPage from './(tabs)/Reports';
 import ProfilePage from './(tabs)/ProfilePage';
 import About from './(tabs)/About';
 
+import { useRouter } from 'expo-router';
+import NotFoundScreen from './app/+not-found';
+
 const SCREEN_WIDTH = Dimensions.get('window').width;
 
 export default function MainApp({ onLogout }) {
@@ -16,6 +19,8 @@ export default function MainApp({ onLogout }) {
 
     const [isDrawerOpen, setIsDrawerOpen] = useState(false);
     const drawerAnim = useRef(new Animated.Value(SCREEN_WIDTH)).current;
+
+    const router = useRouter();
 
     useEffect(() => {
         async function checkActiveShift() {
@@ -106,9 +111,11 @@ export default function MainApp({ onLogout }) {
                         </TouchableOpacity>
                     </View>
                 )}
-                {activeTab === 'reports' && <ReportsPage />}
-                {activeTab === 'profile' && <ProfilePage />}
-                {activeTab === 'about'   && <About />      }
+                {activeTab === 'reports' && <ReportsPage />   }
+                {activeTab === 'profile' && <ProfilePage />   }
+                {activeTab === 'about'   && <About />         }
+                {activeTab === 'notFound'&& <NotFoundScreen 
+                 onGoBack={() => setActiveTab('clock')} />    }
             </View>
 
             {/* תפריט ניווט תחתון */}
@@ -146,6 +153,9 @@ export default function MainApp({ onLogout }) {
                 </TouchableOpacity>
                 <TouchableOpacity style={styles.drawerItem} onPress={() => navigateFromDrawer('about')}>
                     <Text style={styles.drawerItemText}>אודות</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.drawerItem} onPress={() => navigateFromDrawer('notFound')}>
+                    <Text style={styles.drawerItemText}>🔍 בדיקת דף 404</Text>
                 </TouchableOpacity>
                 <View style={styles.drawerDivider} />
                 <TouchableOpacity style={styles.drawerItem} onPress={onLogout}>
