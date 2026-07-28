@@ -4,7 +4,8 @@ import { StatusBar } from 'expo-status-bar';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import ReportsPage from './(tabs)/Reports'; 
-import ProfilePage from './(tabs)/ProfilePage'; 
+import ProfilePage from './(tabs)/ProfilePage';
+import About from './(tabs)/About';
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
 
@@ -107,6 +108,7 @@ export default function MainApp({ onLogout }) {
                 )}
                 {activeTab === 'reports' && <ReportsPage />}
                 {activeTab === 'profile' && <ProfilePage />}
+                {activeTab === 'about'   && <About />      }
             </View>
 
             {/* תפריט ניווט תחתון */}
@@ -141,6 +143,9 @@ export default function MainApp({ onLogout }) {
                 </TouchableOpacity> */}
                 <TouchableOpacity style={styles.drawerItem} onPress={() => navigateFromDrawer('profile')}>
                     <Text style={styles.drawerItemText}>👤 פרופיל אישי</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.drawerItem} onPress={() => navigateFromDrawer('about')}>
+                    <Text style={styles.drawerItemText}>אודות</Text>
                 </TouchableOpacity>
                 <View style={styles.drawerDivider} />
                 <TouchableOpacity style={styles.drawerItem} onPress={onLogout}>
