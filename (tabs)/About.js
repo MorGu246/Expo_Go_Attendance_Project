@@ -4,21 +4,19 @@ import {
 } from 'react-native';
 
 export default function About() {
-    // 🔗 פונקציה לפתיחת הקישור לריפו בדפדפן המכשיר
     const openGithubRepo = () => {
-        // שנה את הקישור לכתובת ה-GitHub האמיתית של הפרויקט שלך
         const repoUrl = 'https://github.com/MorGu246/Expo_Go_Attendance_Project'; 
         Linking.openURL(repoUrl).catch((err) => 
             console.error('Failed to open link:', err)
         );
     };
-    // ⭐️ ה-return שחסר בקוד המקורי!
+
     return (
         <ScrollView contentContainerStyle={styles.container}>
             {/* כרטיס פרטי המפתח */}
             <View style={styles.card}>
                 <Text style={styles.cardTitle}>👨‍💻 פרטי המפתח</Text>
-                <Text style={styles.text}><Text style={styles.bold}>שם מלא:</Text> [השם שלך כאן]</Text>
+                <Text style={styles.text}><Text style={styles.bold}>שם מלא:</Text> מור גואטה</Text>
                 <Text style={styles.text}><Text style={styles.bold}>מערכת:</Text> פרויקט שעון נוכחות</Text>
             </View>
             {/* כרטיס הסבר על המערכת */}
