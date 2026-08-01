@@ -154,9 +154,9 @@ export default function MainApp({ onLogout }) {
                 <TouchableOpacity style={styles.drawerItem} onPress={() => navigateFromDrawer('about')}>
                     <Text style={styles.drawerItemText}>אודות</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.drawerItem} onPress={() => navigateFromDrawer('notFound')}>
+                {/* <TouchableOpacity style={styles.drawerItem} onPress={() => navigateFromDrawer('notFound')}>
                     <Text style={styles.drawerItemText}>🔍 בדיקת דף 404</Text>
-                </TouchableOpacity>
+                </TouchableOpacity> */}
                 <View style={styles.drawerDivider} />
                 <TouchableOpacity style={styles.drawerItem} onPress={onLogout}>
                     <Text style={[styles.drawerItemText, { color: 'red' }]}>🚪 התנתק</Text>
