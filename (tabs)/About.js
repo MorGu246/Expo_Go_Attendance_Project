@@ -17,6 +17,7 @@ export default function About() {
             <View style={styles.card}>
                 <Text style={styles.cardTitle}>👨‍💻 פרטי המפתח</Text>
                 <Text style={styles.text}><Text style={styles.bold}>שם מלא:</Text> מור גואטה</Text>
+                <Text style={styles.text}><Text style={styles.bold}>השכלה:</Text> מכללת כנרת</Text>
                 <Text style={styles.text}><Text style={styles.bold}>מערכת:</Text> פרויקט שעון נוכחות</Text>
             </View>
             {/* כרטיס הסבר על המערכת */}
